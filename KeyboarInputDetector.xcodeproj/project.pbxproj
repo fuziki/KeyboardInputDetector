@@ -24,6 +24,7 @@
 		52DDAA7523180F38005373FB /* KeyboarInputDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DDAA7423180F38005373FB /* KeyboarInputDetector.swift */; };
 		52DDAA7823181319005373FB /* KeyboarInputDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52DDAA322316A7CE005373FB /* KeyboarInputDetector.framework */; };
 		52DDAA7923181319005373FB /* KeyboarInputDetector.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 52DDAA322316A7CE005373FB /* KeyboarInputDetector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		52DDAA7E23182443005373FB /* KeyboarInputDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52DDAA7D23182443005373FB /* KeyboarInputDetector.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		52DDAA6D23180EE9005373FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52DDAA7223180F03005373FB /* KeyboarInputDetectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboarInputDetectorViewController.swift; sourceTree = "<group>"; };
 		52DDAA7423180F38005373FB /* KeyboarInputDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboarInputDetector.swift; sourceTree = "<group>"; };
+		52DDAA7D23182443005373FB /* KeyboarInputDetector.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = KeyboarInputDetector.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				52DDAA5F23180EE7005373FB /* AppDelegate.m */,
 				52DDAA6123180EE7005373FB /* ViewController.h */,
 				52DDAA6223180EE7005373FB /* ViewController.m */,
+				52DDAA7D23182443005373FB /* KeyboarInputDetector.mm */,
 				52DDAA6423180EE7005373FB /* Main.storyboard */,
 				52DDAA6723180EE9005373FB /* Assets.xcassets */,
 				52DDAA6923180EE9005373FB /* LaunchScreen.storyboard */,
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52DDAA7E23182443005373FB /* KeyboarInputDetector.mm in Sources */,
 				52DDAA6323180EE7005373FB /* ViewController.m in Sources */,
 				52DDAA6E23180EE9005373FB /* main.m in Sources */,
 				52DDAA6023180EE7005373FB /* AppDelegate.m in Sources */,
