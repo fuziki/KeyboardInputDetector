@@ -6,7 +6,11 @@ namespace KeyboarInputDetector
         private IKeyboardInputDetector detector;
         public KeyboardInputDetector()
         {
+#if UNITY_EDITOR
+            detector = null;
+#elif UNITY_IOS
             detector = new KeyboardInputDetectorIOS();
+#endif
         }
 
         public void StartDetection(string str)
