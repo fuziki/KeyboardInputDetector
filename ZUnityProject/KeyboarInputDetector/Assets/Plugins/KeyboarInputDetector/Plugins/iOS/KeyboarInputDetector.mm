@@ -25,8 +25,8 @@ KeyboarInputDetector* keyboarInputDetector_init() {
 }
 
 void keyboarInputDetector_startDetection(KeyboarInputDetector* detector, unsigned char* str) {
-//    [detector startDetectionWithUnityView: UnityGetGLViewController().view
-//                                     keys: @"wedcxzaqufhrytjnlvog"];
+    [detector startDetectionWithUnityView: UnityGetGLViewController().view
+                                     keys: @"wedcxzaqufhrytjnlvog"];
 }
 
 void keyboarInputDetector_stopDetection(KeyboarInputDetector* detector) {

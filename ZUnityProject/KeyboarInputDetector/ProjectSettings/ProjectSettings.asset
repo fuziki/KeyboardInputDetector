@@ -647,7 +647,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: f3d3290b-9ca5-4b8d-ac72-7c269ebe1853
   projectName: KeyboarInputDetector
   organizationId: unity_yvrifow9m0l_ma
