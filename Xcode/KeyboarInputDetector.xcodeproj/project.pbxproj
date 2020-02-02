@@ -81,14 +81,14 @@
 
 /* Begin PBXFileReference section */
 		021DCA435D110D2B788F8FB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		067A19D1C1D12209980A736B /* Example_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		067A19D1C1D12209980A736B /* Example_iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Example_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7BA3875E2226FE4A98BEB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1787FBBA770D9CAADC9BFBED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31B33116E6DCAEC6570ECA82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40B37EFE102C7C45C8C99664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		452D422C83C1C2C130CBD5DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A8B10F869947A97BBB58CDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C5E3D9A6CC954B3F2F0E0A2 /* KeyboarInputDetector_bundle.bundle */ = {isa = PBXFileReference; explicitFileType = "wrapper.plug-in"; includeInIndex = 0; name = KeyboarInputDetector_bundle.bundle; path = KeyboarInputDetector_bundle_rVGpvz0vbQ.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C5E3D9A6CC954B3F2F0E0A2 /* KeyboarInputDetector_bundle.bundle */ = {isa = PBXFileReference; explicitFileType = "wrapper.plug-in"; includeInIndex = 0; path = KeyboarInputDetector_bundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		612B014A74DBE0FBABF9E69C /* Example_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example_macOS.entitlements; sourceTree = "<group>"; };
 		658718E7114F0EB451EA6A72 /* KeyboarInputDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboarInputDetector.swift; sourceTree = "<group>"; };
 		673FA29D8AF79627F55A93CB /* KeyboarInputDetectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboarInputDetectorViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +151,7 @@
 				BB95E3736E100823F05C16B7 /* Info.plist */,
 				8B6E0DAA130A589D2D9BE9C4 /* macOS.xcconfig */,
 			);
+			name = Framework;
 			path = Framework;
 			sourceTree = "<group>";
 		};
@@ -169,6 +170,7 @@
 				C05A5EA40822638374D17335 /* Info.plist */,
 				C0DD337F271F93117D5A78F7 /* iOS.xcconfig */,
 			);
+			name = iOS;
 			path = iOS;
 			sourceTree = "<group>";
 		};
@@ -181,6 +183,7 @@
 				8E7E0CC82E39E73F50DB4565 /* NativePlugin.h */,
 				F77447C0745D6CBF2F3CF1D9 /* NativePlugin.mm */,
 			);
+			name = Sources;
 			path = Sources;
 			sourceTree = "<group>";
 		};
@@ -227,6 +230,7 @@
 				0E7BA3875E2226FE4A98BEB3 /* SceneDelegate.swift */,
 				E72EDF2C7E6DBC78BC330D28 /* ViewController.swift */,
 			);
+			name = iOS;
 			path = iOS;
 			sourceTree = "<group>";
 		};
@@ -247,6 +251,7 @@
 				F4578EDD730FBD8A74D5E6D4 /* macOS.xcconfig */,
 				E8D459CAF4AED9847B2C51E2 /* PrefixHeader.pch */,
 			);
+			name = Bundle;
 			path = Bundle;
 			sourceTree = "<group>";
 		};
@@ -261,6 +266,7 @@
 				A565CB139136D9C47027549C /* Main.storyboard */,
 				713645BD556CCF3BE3E4425E /* ViewController.swift */,
 			);
+			name = macOS;
 			path = macOS;
 			sourceTree = "<group>";
 		};
@@ -386,7 +392,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = 04FD4CC4B5ED40D10D695D81;
@@ -459,7 +464,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p ${OUTPUT_PATH}\ncp -r ${TARGET_BUILD_DIR}/${TARGET_NAME}.framework/. ${OUTPUT_PATH}/${TARGET_NAME}.framework\n";
+			shellScript = "mkdir -p ${OUTPUT_PATH}\ncp -r ${TARGET_BUILD_DIR}/${TARGET_NAME}.framework/. ${OUTPUT_PATH}/${TARGET_NAME}.framework\ncp ${PROJECT_DIR}/Library/Platforms/iOS/template.framework.meta ${OUTPUT_PATH}/${TARGET_NAME}.meta\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -565,10 +570,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"FRAMEWORK_HEADER=<KeyboarInputDetector_macOS/NativePlugin.h>",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited) FRAMEWORK_HEADER=<KeyboarInputDetector_macOS/NativePlugin.h>";
 				INFOPLIST_FILE = Example/macOS/info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -696,10 +698,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"FRAMEWORK_HEADER=<KeyboarInputDetector_macOS/NativePlugin.h>",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited) FRAMEWORK_HEADER=<KeyboarInputDetector_macOS/NativePlugin.h>";
 				INFOPLIST_FILE = Example/macOS/info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -783,18 +782,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = N8B2B6D2KS;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"FRAMEWORK_HEADER=<KeyboarInputDetector/NativePlugin.h>",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited) FRAMEWORK_HEADER=<KeyboarInputDetector/NativePlugin.h>";
 				INFOPLIST_FILE = Example/iOS/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = factory.fuziki.example2;
+				PRODUCT_BUNDLE_IDENTIFIER = factory.fuziki.example;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/Example/iOS/Example_iOS-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -833,18 +828,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = N8B2B6D2KS;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"FRAMEWORK_HEADER=<KeyboarInputDetector/NativePlugin.h>",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited) FRAMEWORK_HEADER=<KeyboarInputDetector/NativePlugin.h>";
 				INFOPLIST_FILE = Example/iOS/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = factory.fuziki.example2;
+				PRODUCT_BUNDLE_IDENTIFIER = factory.fuziki.example;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/Example/iOS/Example_iOS-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";

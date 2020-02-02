@@ -38,6 +38,8 @@ targets:
         name: iOS
         group: Library/Platforms
         createIntermediateGroups: true
+        excludes:
+          - "*.meta"
 
       - path: Library/Sources/NativePlugin.h
         buildPhase: headers
