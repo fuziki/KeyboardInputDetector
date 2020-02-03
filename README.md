@@ -5,6 +5,8 @@
 
 ## Created By [UnityPluginXcodeTemplate](https://github.com/fuziki/UnityPluginXcodeTemplate)
 
+## [Download Unity Package](https://github.com/fuziki/KeyboarInputDetector/releases/tag/v0.0.1)
+
 ---
 
 ## はじめに
