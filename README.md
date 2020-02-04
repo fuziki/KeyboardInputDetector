@@ -1,5 +1,5 @@
 # KeyboarInputDetector
-![Platform](https://img.shields.io/badge/platform-%20iOS%20%7C%20macOS%20-lightgrey.svg)
+![Platform](https://img.shields.io/badge/platform-%20iOS%20-lightgrey.svg)
 ![Unity](https://img.shields.io/badge/unity-2018-green.svg)
 ![Xode](https://img.shields.io/badge/xcode-xcode11-green.svg)
 
