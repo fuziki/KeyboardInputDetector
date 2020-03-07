@@ -195,12 +195,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_attribute(external_source_symbol)
 # pragma push_macro("any")
 # undef any
-# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="KeyboarInputDetector",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
+# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="KeyboardInputDetector",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
 # pragma pop_macro("any")
 #endif
 
 
-SWIFT_CLASS("_TtC20KeyboarInputDetector6AddOne")
+SWIFT_CLASS("_TtC21KeyboardInputDetector6AddOne")
 @interface AddOne : NSObject
 + (NSInteger)addWithNum:(NSInteger)num SWIFT_WARN_UNUSED_RESULT;
 + (NSInteger)getOne SWIFT_WARN_UNUSED_RESULT;
@@ -209,8 +209,8 @@ SWIFT_CLASS("_TtC20KeyboarInputDetector6AddOne")
 
 @class UIView;
 
-SWIFT_CLASS("_TtC20KeyboarInputDetector20KeyboarInputDetector")
-@interface KeyboarInputDetector : NSObject
+SWIFT_CLASS("_TtC21KeyboardInputDetector21KeyboardInputDetector")
+@interface KeyboardInputDetector : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (void)startDetectionWithKeys:(NSString * _Nonnull)keys;
 - (void)startDetectionWithUnityView:(UIView * _Nonnull)unityView keys:(NSString * _Nonnull)keys;

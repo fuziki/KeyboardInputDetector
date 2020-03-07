@@ -1,0 +1,4 @@
+framework module KeyboardInputDetector {
+  header "KeyboardInputDetector-Swift.h"
+  requires objc
+}

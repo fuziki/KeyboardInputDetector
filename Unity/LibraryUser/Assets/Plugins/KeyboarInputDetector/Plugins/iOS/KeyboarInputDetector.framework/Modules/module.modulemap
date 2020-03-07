@@ -1,4 +1,0 @@
-framework module KeyboarInputDetector {
-  header "KeyboarInputDetector-Swift.h"
-  requires objc
-}
