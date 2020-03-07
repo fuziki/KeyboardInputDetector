@@ -2,48 +2,48 @@
 using System.Runtime.InteropServices;
 using AOT;
 
-namespace KeyboarInputDetector
+namespace KeyboardInputDetector
 {
     public class KeyboardInputDetectorIOS : IKeyboardInputDetector
     {
 
         [DllImport("__Internal")]
-        private static extern IntPtr keyboarInputDetector_init();
+        private static extern IntPtr keyboardInputDetector_init();
 
         [DllImport("__Internal")]
-        private static extern void keyboarInputDetector_startDetection(IntPtr detector, string str);
+        private static extern void keyboardInputDetector_startDetection(IntPtr detector, string str);
 
         [DllImport("__Internal")]
-        private static extern void keyboarInputDetector_stopDetection(IntPtr detector);
+        private static extern void keyboardInputDetector_stopDetection(IntPtr detector);
 
         [DllImport("__Internal")]
-        private static extern void keyboarInputDetector_registerOnKeyboarInput(IntPtr detector, OnKeyboarInputHandler handler);
+        private static extern void keyboardInputDetector_registerOnKeyboardInput(IntPtr detector, OnKeyboardInputHandler handler);
 
         [DllImport("__Internal")]
-        private static extern void keyboarInputDetector_release(IntPtr detector);
+        private static extern void keyboardInputDetector_release(IntPtr detector);
 
 
         private IntPtr detector;
 
         public KeyboardInputDetectorIOS()
         {
-            detector = keyboarInputDetector_init();
+            detector = keyboardInputDetector_init();
         }
 
         ~KeyboardInputDetectorIOS()
         {
-            keyboarInputDetector_release(detector);
+            keyboardInputDetector_release(detector);
         }
 
         public void StartDetection(string str)
         {
-            keyboarInputDetector_startDetection(detector, str);
-            keyboarInputDetector_registerOnKeyboarInput(detector, HandlerOnKeyboardInput);
+            keyboardInputDetector_startDetection(detector, str);
+            keyboardInputDetector_registerOnKeyboardInput(detector, HandlerOnKeyboardInput);
         }
 
         public void StopDetection()
         {
-            keyboarInputDetector_stopDetection(detector);
+            keyboardInputDetector_stopDetection(detector);
         }
 
         public event OnKeyboardInputDelegate OnKeyboardInput
@@ -54,9 +54,9 @@ namespace KeyboarInputDetector
         private static event OnKeyboardInputDelegate onKeyboardInput;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        private delegate void OnKeyboarInputHandler(string input);
+        private delegate void OnKeyboardInputHandler(string input);
 
-        [MonoPInvokeCallback(typeof(OnKeyboarInputHandler))]
+        [MonoPInvokeCallback(typeof(OnKeyboardInputHandler))]
         private static void HandlerOnKeyboardInput(string input)
         {
             if (onKeyboardInput != null)

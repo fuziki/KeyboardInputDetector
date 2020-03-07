@@ -1,5 +1,5 @@
 ﻿
-namespace KeyboarInputDetector
+namespace KeyboardInputDetector
 {
     public delegate void OnKeyboardInputDelegate(string input);
     public interface IKeyboardInputDetector

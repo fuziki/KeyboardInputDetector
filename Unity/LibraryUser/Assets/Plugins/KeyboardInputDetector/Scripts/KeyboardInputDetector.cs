@@ -1,5 +1,5 @@
 ﻿
-namespace KeyboarInputDetector
+namespace KeyboardInputDetector
 {
     public class KeyboardInputDetector : IKeyboardInputDetector
     {
