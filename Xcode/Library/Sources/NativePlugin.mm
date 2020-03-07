@@ -14,26 +14,26 @@ int add_one(int num) {
     return (int)[AddOne addWithNum: num];
 }
 
-KeyboarInputDetector* keyboarInputDetector_init() {
-    KeyboarInputDetector* detector = [KeyboarInputDetector alloc];
+KeyboardInputDetector* keyboardInputDetector_init() {
+    KeyboardInputDetector* detector = [KeyboardInputDetector alloc];
     CFRetain((CFTypeRef)detector);
     return detector;
 }
 
-void keyboarInputDetector_startDetection(KeyboarInputDetector* detector) {
+void keyboardInputDetector_startDetection(KeyboardInputDetector* detector) {
     [detector startDetectionWithKeys: @"wedcxzaqufhrytjnlvog"];
 }
 
-void keyboarInputDetector_stopDetection(KeyboarInputDetector* detector) {
+void keyboardInputDetector_stopDetection(KeyboardInputDetector* detector) {
     [detector stopDetection];
 }
 
-void keyboarInputDetector_registerOnKeyboarInput(KeyboarInputDetector* detector, OnKeyboarInputHandler handler) {
+void keyboardInputDetector_registerOnKeyboardInput(KeyboardInputDetector* detector, OnKeyboardInputHandler handler) {
     [detector onKeyInputWithHandler: ^(NSString* str) {
         handler([str UTF8String]);
     }];
 }
 
-void keyboarInputDetector_release(KeyboarInputDetector* detector) {
+void keyboardInputDetector_release(KeyboardInputDetector* detector) {
     CFRelease((CFTypeRef)detector);
 }

@@ -1,11 +1,11 @@
-# KeyboarInputDetector
+# KeyboardInputDetector
 ![Platform](https://img.shields.io/badge/platform-%20iOS%20-lightgrey.svg)
 ![Unity](https://img.shields.io/badge/unity-2018-green.svg)
 ![Xode](https://img.shields.io/badge/xcode-xcode11-green.svg)
 
 ## Created By [UnityPluginXcodeTemplate](https://github.com/fuziki/UnityPluginXcodeTemplate)
 
-## [Download Unity Package](https://github.com/fuziki/KeyboarInputDetector/releases/tag/v0.0.1)
+## [Download Unity Package](https://github.com/fuziki/KeyboardInputDetector/releases/tag/v0.0.1)
 
 ---
 
@@ -17,7 +17,7 @@
 * Unity: 2018.2.5
 * Xcode: 10.2.1
 * iOS: 12.4
-* リポジトリ: https://github.com/fuziki/KeyboarInputDetector
+* リポジトリ: https://github.com/fuziki/KeyboardInputDetector
 
 ## 目的
 **良さげなコントローラがあったので、Unityで使ってみる**
@@ -82,12 +82,12 @@ UIResponderのbecomeFirstResponder()を使って、キー入力が自分に来�
 ### UIResponder.keyCommandsをUnityで利用する。
 ネイティブプラグインを作ります。
 #### step.1 指定されたキー入力を受け取り、通知するViewControllerを実装する
-[KeyboarInputDetectorViewController.swift](https://github.com/fuziki/KeyboarInputDetector/blob/master/KeyboarInputDetector/KeyboarInputDetectorViewController.swift)
+[KeyboardInputDetectorViewController.swift](https://github.com/fuziki/KeyboardInputDetector/blob/master/KeyboardInputDetector/KeyboardInputDetectorViewController.swift)
 
 #### step.2 作ったViewControllerをUnityのViewのsubViewに追加する
 
-``` KeyboarInputDetector.swift
-        detectorViewController = KeyboarInputDetectorViewController（）
+``` KeyboardInputDetector.swift
+        detectorViewController = KeyboardInputDetectorViewController（）
         detectorViewController.view.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         detectorViewController.view.backgroundColor = .clear
         UnityGetGLViewController().view.addSubview（detectorViewController.view）
@@ -96,33 +96,33 @@ UIResponderのbecomeFirstResponder()を使って、キー入力が自分に来�
 #### step.3 swiftのフレームワークを呼び出すネイティブプラグインを実装する
 
 ``` c++:
-#import <KeyboarInputDetector/KeyboarInputDetector-Swift.h>
+#import <KeyboardInputDetector/KeyboardInputDetector-Swift.h>
 
-typedef void (*OnKeyboarInputHandler) (const char* input);
+typedef void (*OnKeyboardInputHandler) (const char* input);
 extern "C" {
-    KeyboarInputDetector* keyboarInputDetector_init();
-    void keyboarInputDetector_startDetection(KeyboarInputDetector* detector, unsigned char* str);
-    void keyboarInputDetector_stopDetection(KeyboarInputDetector* detector);
-    void keyboarInputDetector_registerOnKeyboarInput(KeyboarInputDetector* detector, OnKeyboarInputHandler handler);
-    void keyboarInputDetector_release(KeyboarInputDetector* detector);
+    KeyboardInputDetector* KeyboardInputDetector_init();
+    void KeyboardInputDetector_startDetection(KeyboardInputDetector* detector, unsigned char* str);
+    void KeyboardInputDetector_stopDetection(KeyboardInputDetector* detector);
+    void KeyboardInputDetector_registerOnKeyboardInput(KeyboardInputDetector* detector, OnKeyboardInputHandler handler);
+    void KeyboardInputDetector_release(KeyboardInputDetector* detector);
 }
 
-KeyboarInputDetector* keyboarInputDetector_init() {
-    KeyboarInputDetector* detector = [KeyboarInputDetector alloc];
+KeyboardInputDetector* KeyboardInputDetector_init() {
+    KeyboardInputDetector* detector = [KeyboardInputDetector alloc];
     CFRetain((CFTypeRef)detector);
     return detector;
 }
 
-void keyboarInputDetector_startDetection(KeyboarInputDetector* detector, unsigned char* str) {
+void KeyboardInputDetector_startDetection(KeyboardInputDetector* detector, unsigned char* str) {
     [detector startDetectionWithUnityView: UnityGetGLViewController().view
                                      keys: @"wedcxzaqufhrytjnlvog"];
 }
 
-void keyboarInputDetector_stopDetection(KeyboarInputDetector* detector) {
+void KeyboardInputDetector_stopDetection(KeyboardInputDetector* detector) {
     [detector stopDetection];
 }
 
-void keyboarInputDetector_registerOnKeyboarInput(KeyboarInputDetector* detector, OnKeyboarInputHandler handler) {
+void KeyboardInputDetector_registerOnKeyboardInput(KeyboardInputDetector* detector, OnKeyboardInputHandler handler) {
     [detector onKeyInputWithHandler: ^(NSString* str) {
         handler([str UTF8String]);
     }];
@@ -131,48 +131,48 @@ void keyboarInputDetector_registerOnKeyboarInput(KeyboarInputDetector* detector,
 #### step.4 Unityから呼び出す
 
 ``` c#:
-namespace KeyboarInputDetector
+namespace KeyboardInputDetector
 {
     public class KeyboardInputDetectorIOS : IKeyboardInputDetector
     {
 
         [DllImport("__Internal")]
-        private static extern IntPtr keyboarInputDetector_init();
+        private static extern IntPtr KeyboardInputDetector_init();
 
         [DllImport("__Internal")]
-        private static extern void keyboarInputDetector_startDetection(IntPtr detector, string str);
+        private static extern void KeyboardInputDetector_startDetection(IntPtr detector, string str);
 
         [DllImport("__Internal")]
-        private static extern void keyboarInputDetector_stopDetection(IntPtr detector);
+        private static extern void KeyboardInputDetector_stopDetection(IntPtr detector);
 
         [DllImport("__Internal")]
-        private static extern void keyboarInputDetector_registerOnKeyboarInput(IntPtr detector, OnKeyboarInputHandler handler);
+        private static extern void KeyboardInputDetector_registerOnKeyboardInput(IntPtr detector, OnKeyboardInputHandler handler);
 
         [DllImport("__Internal")]
-        private static extern void keyboarInputDetector_release(IntPtr detector);
+        private static extern void KeyboardInputDetector_release(IntPtr detector);
 
 
         private IntPtr detector;
 
         public KeyboardInputDetectorIOS()
         {
-            detector = keyboarInputDetector_init();
+            detector = KeyboardInputDetector_init();
         }
 
         ~KeyboardInputDetectorIOS()
         {
-            keyboarInputDetector_release(detector);
+            KeyboardInputDetector_release(detector);
         }
 
         public void StartDetection(string str)
         {
-            keyboarInputDetector_startDetection(detector, str);
-            keyboarInputDetector_registerOnKeyboarInput(detector, HandlerOnKeyboardInput);
+            KeyboardInputDetector_startDetection(detector, str);
+            KeyboardInputDetector_registerOnKeyboardInput(detector, HandlerOnKeyboardInput);
         }
 
         public void StopDetection()
         {
-            keyboarInputDetector_stopDetection(detector);
+            KeyboardInputDetector_stopDetection(detector);
         }
 
         public event OnKeyboardInputDelegate OnKeyboardInput
@@ -183,9 +183,9 @@ namespace KeyboarInputDetector
         private static event OnKeyboardInputDelegate onKeyboardInput;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        private delegate void OnKeyboarInputHandler(string input);
+        private delegate void OnKeyboardInputHandler(string input);
 
-        [MonoPInvokeCallback(typeof(OnKeyboarInputHandler))]
+        [MonoPInvokeCallback(typeof(OnKeyboardInputHandler))]
         private static void HandlerOnKeyboardInput(string input)
         {
             if (onKeyboardInput != null)

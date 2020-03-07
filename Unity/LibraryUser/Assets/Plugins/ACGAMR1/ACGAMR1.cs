@@ -23,11 +23,11 @@ namespace ACGAMController
         public Button triggerReturn = new Button();
         public Button triggerOk = new Button();
 
-        private KeyboarInputDetector.KeyboardInputDetector detector;
+        private KeyboardInputDetector.KeyboardInputDetector detector;
 
         private ACGAMR1()
         {
-            detector = new KeyboarInputDetector.KeyboardInputDetector();
+            detector = new KeyboardInputDetector.KeyboardInputDetector();
             detector.StartDetection("wedcxzaqufhrytjnlvog");
             detector.OnKeyboardInput += OnOnKeyboardInput;
         }

@@ -1,6 +1,6 @@
-PROJECT_NAME: KeyboarInputDetector
-FRAMEWORK_IOS: KeyboarInputDetector
-FRAMEWORK_MACOS: KeyboarInputDetector_macOS
-BUNDLE_MACOS: KeyboarInputDetector_bundle
+PROJECT_NAME: KeyboardInputDetector
+FRAMEWORK_IOS: KeyboardInputDetector
+FRAMEWORK_MACOS: KeyboardInputDetector_macOS
+BUNDLE_MACOS: KeyboardInputDetector_bundle
 EXAMPLE_IOS: Example_iOS
 EXAMPLE_MACOS: Example_macOS
