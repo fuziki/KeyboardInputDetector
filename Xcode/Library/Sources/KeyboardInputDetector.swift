@@ -1,20 +1,21 @@
 //
-//  KeyboarInputDetector.swift
-//  KeyboarInputDetector
+//  KeyboardInputDetector.swift
+//  KeyboardInputDetector
 //
 //  Created by fuziki on 2019/08/29.
 //  Copyright © 2019 fuziki.factory. All rights reserved.
 //
 
+#if !os(macOS)
 import Foundation
 import UIKit
 
 @objcMembers
-public class KeyboarInputDetector: NSObject {
+public class KeyboardInputDetector: NSObject {
     
     private var unityView: UIView?
     
-    private var detectorViewController: KeyboarInputDetectorViewController?
+    private var detectorViewController: KeyboardInputDetectorViewController?
     
     public override init() {
         super.init()
@@ -32,10 +33,10 @@ public class KeyboarInputDetector: NSObject {
     public func startDetection(unityView: UIView, keys: String) {
         self.unityView = unityView
         
-        KeyboarInputDetectorViewController.keyCommandString = keys
-//        KeyboarInputDetectorViewController.keyCommandString = "wedcxzaq" + "ufhrytjn" + "lvog"
+        KeyboardInputDetectorViewController.keyCommandString = keys
+//        KeyboardInputDetectorViewController.keyCommandString = "wedcxzaq" + "ufhrytjn" + "lvog"
         
-        detectorViewController = KeyboarInputDetectorViewController()
+        detectorViewController = KeyboardInputDetectorViewController()
         detectorViewController?.view.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         detectorViewController?.view.backgroundColor = .clear
         
@@ -50,3 +51,4 @@ public class KeyboarInputDetector: NSObject {
         detectorViewController?.onKeyInput(handler: handler)
     }
 }
+#endif

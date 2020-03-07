@@ -2,7 +2,7 @@
 # Don't edit this file!!
 #-------------------------------------------------------------------------------------------------------
 
-name: KeyboarInputDetector
+name: KeyboardInputDetector
 
 configFiles:
   Debug: Library/project.xcconfig
@@ -13,7 +13,7 @@ targets:
 # iOS framework for iOS example & unity asset for ios deveice
 # Don't edit this file!!
 #-------------------------------------------------------------------------------------------------------
-  KeyboarInputDetector:
+  KeyboardInputDetector:
     type: framework
     platform: iOS
     deploymentTarget: 12.0
@@ -53,7 +53,7 @@ targets:
 # macOS framework for macOS example
 # Don't edit this file!!
 #-------------------------------------------------------------------------------------------------------
-  KeyboarInputDetector_macOS:
+  KeyboardInputDetector_macOS:
     type: framework
     platform: macOS
     deploymentTarget: 10.14
@@ -84,7 +84,7 @@ targets:
 # bundle for unity macOS editor
 # Don't edit this file!!
 #-------------------------------------------------------------------------------------------------------
-  KeyboarInputDetector_bundle:
+  KeyboardInputDetector_bundle:
     type: bundle
     platform: macOS
     deploymentTarget: 10.14
@@ -133,7 +133,7 @@ targets:
       INFOPLIST_FILE: Example/iOS/info.plist
       PRODUCT_BUNDLE_IDENTIFIER: factory.fuziki.example
       SWIFT_OBJC_BRIDGING_HEADER: ${PROJECT_DIR}/Example/iOS/Example_iOS-Bridging-Header.h
-      GCC_PREPROCESSOR_DEFINITIONS: $(inherited) FRAMEWORK_HEADER=<KeyboarInputDetector/NativePlugin.h>
+      GCC_PREPROCESSOR_DEFINITIONS: $(inherited) FRAMEWORK_HEADER=<KeyboardInputDetector/NativePlugin.h>
 
     sources:
       - path: Example/iOS
@@ -142,7 +142,7 @@ targets:
         createIntermediateGroups: true
 
     dependencies:
-      - target: KeyboarInputDetector
+      - target: KeyboardInputDetector
 
 #-------------------------------------------------------------------------------------------------------
 # example macOS
@@ -157,7 +157,7 @@ targets:
       INFOPLIST_FILE: Example/macOS/info.plist
       CODE_SIGN_IDENTITY: "-"
       SWIFT_OBJC_BRIDGING_HEADER: ${PROJECT_DIR}/Example/macOS/Example_macOS-Bridging-Header.h
-      GCC_PREPROCESSOR_DEFINITIONS: $(inherited) FRAMEWORK_HEADER=<KeyboarInputDetector_macOS/NativePlugin.h>
+      GCC_PREPROCESSOR_DEFINITIONS: $(inherited) FRAMEWORK_HEADER=<KeyboardInputDetector_macOS/NativePlugin.h>
 
     sources:
       - path: Example/macOS
@@ -166,17 +166,17 @@ targets:
         createIntermediateGroups: true
 
     dependencies:
-      - target: KeyboarInputDetector_macOS
+      - target: KeyboardInputDetector_macOS
 
 #-------------------------------------------------------------------------------------------------------
 # scheme setteing
 # Don't edit this file!!
 #-------------------------------------------------------------------------------------------------------
 schemes:
-  KeyboarInputDetector_bundle:
+  KeyboardInputDetector_bundle:
     build:
       targets:
-        KeyboarInputDetector_bundle: macOS
+        KeyboardInputDetector_bundle: macOS
       preActions:
         - script: sh ${PROJECT_DIR}/Library/Scripts/PreAction.sh
-          settingsTarget: KeyboarInputDetector_bundle
+          settingsTarget: KeyboardInputDetector_bundle

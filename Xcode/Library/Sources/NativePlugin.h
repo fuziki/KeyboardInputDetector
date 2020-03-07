@@ -8,20 +8,20 @@
 #ifndef NativePlugin_h
 #define NativePlugin_h
 
-#import <KeyboarInputDetector/KeyboarInputDetector-Swift.h>
+#import <KeyboardInputDetector/KeyboardInputDetector-Swift.h>
 
-typedef void (*OnKeyboarInputHandler) (const char* input);
+typedef void (*OnKeyboardInputHandler) (const char* input);
 
 #ifdef __cplusplus
 extern "C" {
 #endif
     int add_one(int num);
 
-    KeyboarInputDetector* keyboarInputDetector_init();
-    void keyboarInputDetector_startDetection(KeyboarInputDetector* detector);
-    void keyboarInputDetector_stopDetection(KeyboarInputDetector* detector);
-    void keyboarInputDetector_registerOnKeyboarInput(KeyboarInputDetector* detector, OnKeyboarInputHandler handler);
-    void keyboarInputDetector_release(KeyboarInputDetector* detector);
+    KeyboardInputDetector* keyboardInputDetector_init();
+    void keyboardInputDetector_startDetection(KeyboardInputDetector* detector);
+    void keyboardInputDetector_stopDetection(KeyboardInputDetector* detector);
+    void keyboardInputDetector_registerOnKeyboardInput(KeyboardInputDetector* detector, OnKeyboardInputHandler handler);
+    void keyboardInputDetector_release(KeyboardInputDetector* detector);
 
 #ifdef __cplusplus
 }

@@ -6,13 +6,13 @@
 //
 
 import UIKit
-import KeyboarInputDetector
+import KeyboardInputDetector
 
 class ViewController: UIViewController {
     
-    var detector: KeyboarInputDetector!
+    var detector: KeyboardInputDetector!
     
-    var aa: OnKeyboarInputHandler?
+    var aa: OnKeyboardInputHandler?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +23,9 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        detector = keyboarInputDetector_init()
+        detector = keyboardInputDetector_init()
         detector.startDetection(keys: "wedcxzaqufhrytjnlvog")
-        keyboarInputDetector_registerOnKeyboarInput(detector, { (c) in
+        keyboardInputDetector_registerOnKeyboardInput(detector, { (c) in
             print("c: \(String(describing: c?.pointee))")
         })
     }

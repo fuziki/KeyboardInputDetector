@@ -1,14 +1,15 @@
 //
-//  KeyboarInputDetectorViewController.swift
-//  KeyboarInputDetector
+//  KeyboardInputDetectorViewController.swift
+//  KeyboardInputDetector
 //
 //  Created by fuziki on 2019/08/29.
 //  Copyright © 2019 fuziki.factory. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
-internal class KeyboarInputDetectorViewController: UIViewController {
+internal class KeyboardInputDetectorViewController: UIViewController {
     static var keyCommandString: String = ""
     private var onKeyInputHandler: ((String) -> Void)? = nil
     
@@ -21,7 +22,7 @@ internal class KeyboarInputDetectorViewController: UIViewController {
     }
     
     override var keyCommands: [UIKeyCommand]? {
-        return KeyboarInputDetectorViewController.keyCommandString.map({ (c: Character) -> UIKeyCommand in
+        return KeyboardInputDetectorViewController.keyCommandString.map({ (c: Character) -> UIKeyCommand in
             return UIKeyCommand(input: String(c), modifierFlags: [], action: #selector(handlerKeyInput(command:)))
         })
     }
@@ -36,3 +37,4 @@ internal class KeyboarInputDetectorViewController: UIViewController {
         onKeyInputHandler = handler
     }
 }
+#endif
